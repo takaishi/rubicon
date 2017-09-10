@@ -1,0 +1,36 @@
+compile: &defaults
+  build: .
+  volumes:
+    - .:/home/mruby/code:rw
+  entrypoint:
+    - rake
+    - compile
+test:
+  <<: *defaults
+  entrypoint:
+    - rake
+    - test
+bintest:
+  <<: *defaults
+  entrypoint:
+    - rake
+    - test:bintest
+mtest:
+  <<: *defaults
+  entrypoint:
+    - rake
+    - test:mtest
+clean:
+  <<: *defaults
+  entrypoint:
+    - rake
+    - clean
+shell:
+  <<: *defaults
+  entrypoint:
+    - bash
+release:
+  <<: *defaults
+  entrypoint:
+    - rake
+    - release
