@@ -1,5 +1,6 @@
 class Health
-  attr_accessor :node, :name, :service_id
+  attr_accessor :status, :node, :name, :service_id
+
   def initialize(param)
     @param = param
     @node = param['node']
