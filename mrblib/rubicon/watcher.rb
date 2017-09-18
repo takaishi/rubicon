@@ -20,7 +20,7 @@ module Rubicon
       url = "http://localhost:8500/v1/#{path}"
       res = http.get(url)
 
-      res.header['X-Consul-Index'].to_i
+      res.headers['x-consul-index'].to_i
     end
 
     def watch(path)
