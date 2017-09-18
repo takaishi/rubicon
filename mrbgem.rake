@@ -14,8 +14,8 @@ spec = MRuby::Gem::Specification.new('rubicon') do |spec|
   spec.add_dependency 'mruby-eval', :core => 'mruby-eval'
   spec.add_dependency 'mruby-hash-ext', :core => 'mruby-hash-ext'
   spec.add_dependency 'mruby-proc-ext', :core => 'mruby-proc-ext'
-  # spec.add_dependency 'mruby-fiber', :core => 'mruby-fiber'
   spec.add_dependency 'mruby-enumerator', :core => 'mruby-enumerator'
+  spec.add_dependency 'mruby-logger', :mgem => 'mruby-logger'
 end
 
 spec.license = 'MIT'

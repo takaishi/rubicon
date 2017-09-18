@@ -25,13 +25,14 @@ module Rubicon
 
     def watch(path)
       index = get_index(path)
-      puts "index: #{index}"
+      logger.info "index: #{index}"
 
       loop do
         http = HttpRequest.new
-        res = http.get("http://localhost:8500/v1/#{path}", {index: index + 1})
+        res = http.get("http://localhost:8500/v1/#{path}?index=#{index+1}")
 
-        index = res.header['X-Consul-Index'].to_i
+        index = res.headers['x-consul-index'].to_i
+        logger.info "index: #{index}"
         healths = JSON.parse(res.body).map do |h|
           Health.new(_health(h))
         end
@@ -41,7 +42,11 @@ module Rubicon
       end
     end
 
-   private
+    private
+
+    def logger
+      $logger
+    end
 
     def _health(h)
       {

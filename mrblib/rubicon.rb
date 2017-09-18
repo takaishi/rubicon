@@ -1,3 +1,6 @@
+
+$logger = Logger.new(STDOUT)
+
 def __main__(argv)
   case
     when argv[1] == "version"
